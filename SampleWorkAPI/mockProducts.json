@@ -1,0 +1,131 @@
+﻿[
+  {
+    "Id": 1,
+    "Name": "Running Shoes",
+    "Description": "A pair of high-quality running shoes for daily jogs.",
+    "Price": 59.99
+  },
+  {
+    "Id": 2,
+    "Name": "Basketball Shoes",
+    "Description": "Comfortable basketball shoes with excellent grip.",
+    "Price": 89.99
+  },
+  {
+    "Id": 3,
+    "Name": "Casual Sneakers",
+    "Description": "Stylish casual sneakers for everyday wear.",
+    "Price": 49.99
+  },
+  {
+    "Id": 4,
+    "Name": "Hiking Boots",
+    "Description": "Durable hiking boots for rugged terrain.",
+    "Price": 119.99
+  },
+  {
+    "Id": 5,
+    "Name": "Sandals",
+    "Description": "Comfortable sandals for summer days.",
+    "Price": 29.99
+  },
+  {
+    "Id": 6,
+    "Name": "Formal Shoes",
+    "Description": "Elegant formal shoes for business and events.",
+    "Price": 79.99
+  },
+  {
+    "Id": 7,
+    "Name": "Running Shoes Deluxe",
+    "Description": "Advanced running shoes with superior cushioning.",
+    "Price": 99.99
+  },
+  {
+    "Id": 8,
+    "Name": "Soccer Cleats",
+    "Description": "High-performance soccer cleats for the field.",
+    "Price": 69.99
+  },
+  {
+    "Id": 9,
+    "Name": "Flip Flops",
+    "Description": "Easy slip-on flip flops for casual wear.",
+    "Price": 19.99
+  },
+  {
+    "Id": 10,
+    "Name": "Winter Boots",
+    "Description": "Warm and waterproof boots for winter.",
+    "Price": 129.99
+  },
+  {
+    "Id": 11,
+    "Name": "Tennis Shoes",
+    "Description": "Lightweight tennis shoes for optimal performance.",
+    "Price": 89.99
+  },
+  {
+    "Id": 12,
+    "Name": "Skate Shoes",
+    "Description": "Durable skate shoes with enhanced grip.",
+    "Price": 54.99
+  },
+  {
+    "Id": 13,
+    "Name": "Trail Running Shoes",
+    "Description": "Trail running shoes designed for rough trails.",
+    "Price": 109.99
+  },
+  {
+    "Id": 14,
+    "Name": "Golf Shoes",
+    "Description": "Comfortable golf shoes with excellent support.",
+    "Price": 119.99
+  },
+  {
+    "Id": 15,
+    "Name": "Climbing Shoes",
+    "Description": "Specialized climbing shoes for rock climbing.",
+    "Price": 89.99
+  },
+  {
+    "Id": 16,
+    "Name": "Dress Shoes",
+    "Description": "Classic dress shoes for formal occasions.",
+    "Price": 99.99
+  },
+  {
+    "Id": 17,
+    "Name": "Cross Training Shoes",
+    "Description": "Versatile shoes for various training activities.",
+    "Price": 79.99
+  },
+  {
+    "Id": 18,
+    "Name": "Work Boots",
+    "Description": "Sturdy work boots for heavy-duty jobs.",
+    "Price": 129.99
+  },
+  {
+    "Id": 19,
+    "Name": "Loafers",
+    "Description": "Comfortable loafers for casual and formal wear.",
+    "Price": 59.99
+  },
+  {
+    "Id": 20,
+    "Name": "Track Spikes",
+    "Description": "Performance track spikes for athletes.",
+    "Price": 79.99
+  },
+  {
+    "Id": 21,
+    "Name": "Water Shoes",
+    "Description": "Water shoes for beach and water activities.",
+    "Price": 39.99
+  },
+  {
+    "Id": 22,
+    "Name": "Walking Shoes",
+    "Description": "Comfortable walk

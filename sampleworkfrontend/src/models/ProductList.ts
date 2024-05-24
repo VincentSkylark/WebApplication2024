@@ -1,0 +1,3 @@
+interface ProductList {
+    products: Product[];
+}
