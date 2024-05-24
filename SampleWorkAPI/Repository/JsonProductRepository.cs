@@ -1,12 +1,11 @@
 ﻿using SampleWorkAPI.Models;
 using System.Text.Json;
-using System.Linq;
 
 namespace SampleWorkAPI.Repository
 {
     public class JsonProductRepository: IProductRepository
     {
-        private Dictionary<int, Product> _products;
+        private List<Product> _products;
         public JsonProductRepository()
         {
               
@@ -14,29 +13,46 @@ namespace SampleWorkAPI.Repository
 
         public async Task InitializeAsync()
         {
-            _products = (await LoadProductsAsync()).ToDictionary<int, Product>(p=>p.Id, p=>p);
+            _products = (await LoadProductsAsync()).ToList();
         }
 
-        private async Task<IDictionary<int, Product>> LoadProductsAsync()
+        private async Task<IEnumerable<Product>> LoadProductsAsync()
         {
             var products = new List<Product>();
-            using (var reader = new StreamReader("mockProducts.json"))
+            try
             {
-                var json = await reader.ReadToEndAsync();
-                products = JsonSerializer.Deserialize<List<Product>>(json);
+                using (var reader = new StreamReader("mockProducts.json"))
+                {
+                    var json = await reader.ReadToEndAsync();
+                    products = JsonSerializer.Deserialize<List<Product>>(json);
+                }
             }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found.");
+            }
+            catch (JsonException)
+            {
+                Console.WriteLine("Invalid JSON format.");
+            }
+            
+
             if (products == null)
             {
                 throw new Exception("Failed to load products");
             }
 
-            return products.ToDictionary<int, Product>(p => p.Id);
+            return products;
         }
 
 
         public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
-            return _products.;
+            if (_products == null)
+            {
+                await InitializeAsync();
+            }
+            return _products;
         }
     }
 }

@@ -1,4 +1,9 @@
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using SampleWorkAPI.Repository;
+using System.Text;
+
 namespace SampleWorkAPI
 {
     public class Program
@@ -13,12 +18,25 @@ namespace SampleWorkAPI
                 options.AddPolicy("SameDomainPolicy",
                                        builder =>
                                        {
-                                           builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost")
+                                           builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost" || new Uri(origin).Host == "v-dev.net")
                                                .AllowAnyHeader()
                                                .AllowAnyMethod();
                                        });
             });
-
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("A custom Secret key for authentication in development environment")),
+                        ClockSkew = TimeSpan.Zero // Optional: remove delay of token when expire
+                    };
+                });
+            builder.Services.AddSingleton<IProductRepository, JsonProductRepository>();
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -34,6 +52,7 @@ namespace SampleWorkAPI
             }
             app.UseCors("SameDomainPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();
